@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 import { PaperProvider } from "react-native-paper";
+import React from "react";
 function App() {
   return (
     <PaperProvider>

@@ -2,18 +2,18 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "module": "ESNext", // Usado por Rollup para importar/exportar módulos
-    "target": "ES5", // Compatibilidad con navegadores más antiguos y Node.js
-    "moduleResolution": "node", // Resolución de módulos similar a Node.js
-    "declaration": true, // Genera archivos .d.ts para los tipos
-    "declarationMap": true, // Genera mapas de declaraciones para los archivos .d.ts
-    "sourceMap": true, // Genera archivos .map para la depuración
-    "outDir": "dist", // Directorio de salida para los archivos compilados
-    "jsx": "react", // Configuración para archivos JSX
-    "esModuleInterop": true, // Habilita la interoperabilidad entre módulos ES y CommonJS
-    "skipLibCheck": true, // Omite la verificación de tipos en los archivos de declaración de la biblioteca
-    "forceConsistentCasingInFileNames": true // Asegura el uso consistente de las mayúsculas y minúsculas en los nombres de archivos
+    "module": "ESNext",
+    "target": "ES5",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"], // Incluye todos los archivos en el directorio src
-  "exclude": ["node_modules", "dist"] // Excluye los archivos en node_modules y dist
+  "include": ["src", "index.ts"],
+  "exclude": ["node_modules", "dist"]
 }

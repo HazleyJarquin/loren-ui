@@ -1,11 +1,9 @@
-// rollup.config.js
-
 import typescript from "rollup-plugin-typescript2";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 
 export default {
-  input: "src/components/index.ts",
+  input: "index.ts",
   output: [
     {
       file: "dist/index.js",
@@ -18,11 +16,6 @@ export default {
       sourcemap: true,
     },
   ],
-  plugins: [
-    resolve(),
-    commonjs(),
-    typescript(),
-    // No incluir `uglify` si no lo necesitas
-  ],
+  plugins: [resolve(), commonjs(), typescript()],
   external: ["react", "react-native", "react-native-paper"],
 };
