@@ -14,7 +14,13 @@ Para ejecutar la aplicación localmente, asegúrate de que el campo `"main"` en 
 
 ````json
 "main": "expo/AppEntry.js",
+````
+### Crear Build
 
+Para poder subir tu app a npm necesitas generar el build de tu libreria, comnado a utilizar:
+````bash
+npm run build
+````
 
 ### Subir a NPM
 
@@ -23,3 +29,4 @@ Para subir tu aplicacion a npm, debes cambiar el campo `"main"` en tu archivo `p
 ```json
  "main": "dist/index.js",
 ````
+
