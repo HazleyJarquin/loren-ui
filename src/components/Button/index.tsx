@@ -1,39 +1,39 @@
 import { Text, StyleSheet } from "react-native";
 import { ButtonProps, Button as PaperButton } from "react-native-paper";
 import React from "react";
-export interface MyButtonProps extends ButtonProps {
-  children: React.ReactNode;
+export interface MyButtonProps extends Omit<ButtonProps, "children"> {
+  text: string;
 }
 
 export const Button = ({
-  children,
+  text,
   onPress,
   contentStyle,
   mode = "contained",
 }: MyButtonProps) => {
-  const backgroundMode: Record<string, any> = {
+  const buttonModeStyle: Record<string, any> = {
     text: {},
-    outlined: {},
+    outlined: { borderWidth: 1, borderColor: "#2C2C2C" },
     contained: { backgroundColor: "#2C2C2C" },
-    elevated: {},
+    elevated: { borderWidth: 1, borderColor: "#2C2C2C", borderStyle: "dashed" },
     "contained-tonal": { backgroundColor: "#2C2C2C" },
   };
+
+  const textColorMode: Record<string, any> = {
+    text: { color: "#2C2C2C" },
+    outlined: { color: "#2C2C2C" },
+    contained: { color: "#FFFFFF" },
+    elevated: { color: "#2C2C2C" },
+    "contained-tonal": { color: "#FFFFFF" },
+  };
+
   return (
     <PaperButton
       contentStyle={[contentStyle, { padding: 5 }]}
-      children={children}
       onPress={onPress}
-      style={backgroundMode[mode] || {}}
-    />
+      style={buttonModeStyle[mode] || {}}
+    >
+      <Text style={textColorMode[mode] || {}}>{text}</Text>
+    </PaperButton>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: "purple",
-    borderRadius: 8,
-  },
-  text: { color: "white" },
-});

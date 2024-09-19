@@ -24,7 +24,8 @@ type Story = StoryObj<typeof meta>;
 export const Content: Story = {
   args: {
     onPress: () => alert("Pressed"),
-    children: <Text style={{ color: "white" }}>Press me!</Text>,
+    text: "Press me",
+    mode: "contained",
   },
   argTypes: {
     disabled: { control: "boolean" },
