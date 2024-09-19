@@ -1,6 +1,6 @@
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { ButtonProps, Button as PaperButton } from "react-native-paper";
-
+import React from "react";
 export interface MyButtonProps extends ButtonProps {
   onPress: () => void;
   text: string;
