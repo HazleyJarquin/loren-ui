@@ -1,18 +1,28 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import { Checkbox } from "../index";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
+import {
+  backgroundColorDisabled,
+  textColorDisabled,
+} from "../../../utils/disabledColors";
 
-jest.mock("@expo/vector-icons", () => {
-  return {
-    MaterialIcons: () => (
-      <View>
-        <Text testID="check-icon">Test</Text>
-      </View>
-    ),
-  };
-});
+interface MaterialIconsProps {
+  name: string;
+  size?: number;
+  color?: string;
+  testID?: string;
+}
+jest.mock("@expo/vector-icons", () => ({
+  MaterialIcons: ({ name, size, color, testID }: MaterialIconsProps) => (
+    <View testID={testID}>
+      <Text style={{ color }} testID="icon-text">
+        {name}
+      </Text>
+    </View>
+  ),
+}));
 
 const mockOnPress = jest.fn();
 
@@ -49,11 +59,52 @@ describe("Checkbox Component", () => {
   });
 
   it("displays the check icon when checked", () => {
-    const { queryByTestId } = render(
+    const { getAllByTestId } = render(
       <Checkbox {...defaultProps} checked={true} />
     );
+    const checkIcons = getAllByTestId("check-icon");
+    expect(checkIcons.length).toBe(1);
+    expect(checkIcons[0]).toBeTruthy();
+  });
 
-    expect(queryByTestId("check-icon")).toBeTruthy();
+  it("applies the textColorDisabled when the checkbox is disabled and checked", () => {
+    const { getAllByTestId } = render(
+      <Checkbox {...defaultProps} checked={true} isDisabled={true} />
+    );
+    const checkIcons = getAllByTestId("check-icon");
+    expect(checkIcons.length).toBe(1);
+    const checkIcon = checkIcons[0];
+
+    const iconText = checkIcon.findByProps({ testID: "icon-text" });
+
+    expect(StyleSheet.flatten(iconText.props.style).color).toBe(
+      textColorDisabled
+    );
+  });
+
+  it("applies the correct borderColor when disabled", () => {
+    const { getByTestId } = render(
+      <Checkbox {...defaultProps} isDisabled={true} />
+    );
+    const checkbox = getByTestId("checkbox");
+    const flattenedStyles = StyleSheet.flatten(checkbox.props.style);
+
+    expect(flattenedStyles.borderColor).toBe(backgroundColorDisabled);
+  });
+
+  it("applies the correct checkColor when not disabled", () => {
+    const { getAllByTestId } = render(
+      <Checkbox {...defaultProps} checked={true} isDisabled={false} />
+    );
+    const checkIcons = getAllByTestId("check-icon");
+    expect(checkIcons.length).toBe(1);
+    const checkIcon = checkIcons[0];
+
+    const iconText = checkIcon.findByProps({ testID: "icon-text" });
+
+    expect(StyleSheet.flatten(iconText.props.style).color).toBe(
+      defaultProps.checkColor
+    );
   });
 
   it("does not display the check icon when not checked", () => {

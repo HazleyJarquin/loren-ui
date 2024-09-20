@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>16/20</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -128,7 +128,9 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,27 +147,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,7 +198,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import { StyleProp, ViewStyle, View } from "react-native";
+import { StyleSheet, View, StyleProp, ViewStyle } from "react-native";
 import { Avatar as PaperAvatar } from "react-native-paper";
 &nbsp;
 export type AvatarProps = {
@@ -218,39 +222,41 @@ export const Avatar = ({
   avatarText,
   textColor,
   avatarStyle,
-  isBorder = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+  isBorder = false,
 }: AvatarProps) =&gt; {
-  const combinedBorderStyle: StyleProp&lt;ViewStyle&gt; = [
-    {
+  const labelText = avatarText !== undefined ? avatarText : "NA";
+&nbsp;
+  const combinedBorderStyle: StyleProp&lt;ViewStyle&gt; = {
+    ...(isBorder &amp;&amp; {
       borderWidth: 2,
       borderColor: "#2C2C2C",
       padding: 5,
       borderRadius: size / 2 + 5,
-    },
-    borderContainerStyle,
-  ];
+    }),
+    ...(borderContainerStyle as object),
+  };
 &nbsp;
   return (
-    &lt;View testID="avatar-container" style={isBorder ? combinedBorderStyle : {}}&gt;
+    &lt;View testID="avatar-container" style={combinedBorderStyle}&gt;
       {variant === "avatarImage" ? (
         &lt;PaperAvatar.Image
           testID="avatar-image"
           size={size}
           style={avatarStyle}
-          source={source ?? <span class="branch-1 cbranch-no" title="branch not covered" >{ uri: "" }}</span>
+          source={source ?? { uri: "" }}
         /&gt;
       ) : variant === "avatarIcon" ? (
         &lt;PaperAvatar.Icon
           testID="avatar-icon"
           size={size}
           style={avatarStyle}
-          icon={icon ?? <span class="branch-1 cbranch-no" title="branch not covered" >""}</span>
+          icon={icon || "account"}
         /&gt;
       ) : (
         &lt;PaperAvatar.Text
           testID="avatar-text"
           size={size}
-          label={avatarText ?? <span class="branch-1 cbranch-no" title="branch not covered" >""}</span>
+          label={labelText}
           color={textColor}
           style={avatarStyle}
         /&gt;
@@ -265,7 +271,7 @@ export const Avatar = ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-09-20T19:50:06.459Z
+                at 2024-09-20T21:31:58.718Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

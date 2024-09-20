@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleProp, ViewStyle, View } from "react-native";
+import { StyleSheet, View, StyleProp, ViewStyle } from "react-native";
 import { Avatar as PaperAvatar } from "react-native-paper";
 
 export type AvatarProps = {
@@ -25,18 +25,20 @@ export const Avatar = ({
   avatarStyle,
   isBorder = false,
 }: AvatarProps) => {
-  const combinedBorderStyle: StyleProp<ViewStyle> = [
-    {
+  const labelText = avatarText !== undefined ? avatarText : "NA";
+
+  const combinedBorderStyle: StyleProp<ViewStyle> = {
+    ...(isBorder && {
       borderWidth: 2,
       borderColor: "#2C2C2C",
       padding: 5,
       borderRadius: size / 2 + 5,
-    },
-    borderContainerStyle,
-  ];
+    }),
+    ...(borderContainerStyle as object),
+  };
 
   return (
-    <View testID="avatar-container" style={isBorder ? combinedBorderStyle : {}}>
+    <View testID="avatar-container" style={combinedBorderStyle}>
       {variant === "avatarImage" ? (
         <PaperAvatar.Image
           testID="avatar-image"
@@ -49,13 +51,13 @@ export const Avatar = ({
           testID="avatar-icon"
           size={size}
           style={avatarStyle}
-          icon={icon ?? ""}
+          icon={icon || "account"}
         />
       ) : (
         <PaperAvatar.Text
           testID="avatar-text"
           size={size}
-          label={avatarText ?? ""}
+          label={labelText}
           color={textColor}
           style={avatarStyle}
         />

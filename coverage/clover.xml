@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1726861806509" clover="3.2.0">
-  <project timestamp="1726861806510" name="All files">
-    <metrics statements="92" coveredstatements="92" conditionals="58" coveredconditionals="48" methods="7" coveredmethods="7" elements="157" coveredelements="147" complexity="0" loc="92" ncloc="92" packages="7" files="9" classes="9"/>
+<coverage generated="1726867495776" clover="3.2.0">
+  <project timestamp="1726867495776" name="All files">
+    <metrics statements="93" coveredstatements="93" conditionals="54" coveredconditionals="51" methods="7" coveredmethods="7" elements="154" coveredelements="151" complexity="0" loc="93" ncloc="93" packages="7" files="9" classes="9"/>
     <package name="components.Avatar">
-      <metrics statements="15" coveredstatements="15" conditionals="20" coveredconditionals="16" methods="1" coveredmethods="1"/>
+      <metrics statements="16" coveredstatements="16" conditionals="16" coveredconditionals="16" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\design_systems\loren-ui\src\components\Avatar\index.tsx">
-        <metrics statements="15" coveredstatements="15" conditionals="20" coveredconditionals="16" methods="1" coveredmethods="1"/>
+        <metrics statements="16" coveredstatements="16" conditionals="16" coveredconditionals="16" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="26" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="28" count="5" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="19" count="9" type="stmt"/>
+        <line num="20" count="9" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="22" count="9" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="26" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="9" type="stmt"/>
+        <line num="40" count="9" type="stmt"/>
       </file>
     </package>
     <package name="components.Button">
@@ -42,27 +43,27 @@
       </file>
     </package>
     <package name="components.Checkbox">
-      <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\design_systems\loren-ui\src\components\Checkbox\index.tsx">
-        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.IconButton">
-      <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="11" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\design_systems\loren-ui\src\components\IconButton\index.tsx">
-        <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="11" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -70,16 +71,16 @@
         <line num="22" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
         <line num="66" count="1" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="69" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="70" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="71" count="3" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
-        <line num="73" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="74" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="3" type="stmt"/>
-        <line num="78" count="3" type="stmt"/>
+        <line num="67" count="7" type="stmt"/>
+        <line num="68" count="7" type="stmt"/>
+        <line num="69" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="7" type="stmt"/>
+        <line num="72" count="7" type="stmt"/>
+        <line num="73" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="74" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="7" type="stmt"/>
+        <line num="78" count="7" type="stmt"/>
       </file>
     </package>
     <package name="components.Input">
