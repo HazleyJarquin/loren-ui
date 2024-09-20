@@ -17,5 +17,10 @@ export default {
     },
   ],
   plugins: [resolve(), commonjs(), typescript()],
-  external: ["react", "react-native", "react-native-paper"],
+  external: [
+    "react",
+    "react-native",
+    "react-native-paper",
+    "@expo/vector-icons",
+  ],
 };
