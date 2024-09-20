@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
-import { Checkbox } from "../../components/Checkbox";
+import React, { FC, useState } from "react";
+import { Checkbox, CheckboxProps } from "../../components/Checkbox";
 
 const meta = {
   title: "Components/Checkbox",
   component: Checkbox,
   decorators: [
-    (Story) => (
+    (Story: FC) => (
       <View style={styles.centered}>
         <Story />
       </View>
@@ -20,7 +20,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Content: Story = {
-  render: (args) => {
+  render: (args: CheckboxProps) => {
     const [checked, setChecked] = useState(args.checked);
 
     const handlePress = () => {

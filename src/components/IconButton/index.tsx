@@ -75,13 +75,9 @@ export const IconButton = ({
 }: IconProps) => {
   const IconComponent = iconLibraries[type];
 
-  if (!IconComponent) {
-    console.error(`El tipo de icono "${type}" no es válido.`);
-    return null;
-  }
-
   return (
     <TouchableOpacity
+      testID="icon-button"
       onPress={onPress}
       disabled={isDisabled}
       style={[
@@ -93,6 +89,7 @@ export const IconButton = ({
       ]}
     >
       <IconComponent
+        testID="icon"
         name={icon}
         size={size}
         color={isDisabled ? textColorDisabled : color}

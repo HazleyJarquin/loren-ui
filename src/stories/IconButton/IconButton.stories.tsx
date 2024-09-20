@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { StyleSheet, View } from "react-native";
 
-import React from "react";
+import React, { FC } from "react";
 import { IconButton } from "../../components/IconButton";
 
 const meta = {
   title: "Components/IconButton",
   component: IconButton,
   decorators: [
-    (Story) => (
+    (Story: FC) => (
       <View style={styles.centered}>
         <Story />
       </View>

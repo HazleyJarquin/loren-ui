@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import {
   Portal,
   Modal as PaperModal,
   ModalProps as PaperModalProps,
   Text,
+  IconButton,
+  Icon,
+  Button,
 } from "react-native-paper";
-
-import { IconButton } from "../IconButton";
 
 export type ModalProps = PaperModalProps & {
   children: React.ReactNode;
@@ -36,6 +37,7 @@ export const Modal = ({
         visible={visible}
         contentContainerStyle={combinedStyle}
         {...props}
+        testID="modal"
       >
         <View style={styles.childrenContainer}>
           {title && (
@@ -49,15 +51,12 @@ export const Modal = ({
                 alignItems: "baseline",
               }}
             >
-              <Text style={{ marginBottom: 10 }}>{title}</Text>
-              <IconButton
-                icon={"close"}
-                onPress={onIconClosePress}
-                mode="tertiary"
-                type="MaterialIcons"
-                size={20}
-                style={{ marginBottom: 10 }}
-              />
+              <Text style={{ marginBottom: 10 }} testID="modal-title">
+                {title}
+              </Text>
+              <Button onPress={onIconClosePress} testID="close-icon">
+                <Icon source="close" size={20} />
+              </Button>
             </View>
           )}
           {children}

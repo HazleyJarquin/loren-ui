@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import type { Preview } from "@storybook/react";
 import { PaperProvider } from "react-native-paper";
 
@@ -12,7 +12,7 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
+    (Story: FC) => (
       <PaperProvider>
         <Story />
       </PaperProvider>

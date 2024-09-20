@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, Keyboard } from "react-native";
+import { StyleSheet, View, Keyboard } from "react-native";
 import { Text, TextInput, TextInputProps } from "react-native-paper";
 
 export interface InputProps extends Omit<TextInputProps, "mode"> {
@@ -24,12 +24,13 @@ export const Input = ({
   return (
     <View style={styles.container}>
       {label && (
-        <Text style={styles.label}>
+        <Text testID="input-label" style={styles.label}>
           {label} <Text style={{ color: "red" }}>*</Text>
         </Text>
       )}
       <View style={styles.inputContainer}>
         <TextInput
+          testID="input"
           disabled={disabled}
           style={styles.input}
           placeholder={placeholder}
@@ -44,6 +45,7 @@ export const Input = ({
           right={
             isPassword ? (
               <TextInput.Icon
+                testID="toggle-password-visibility"
                 disabled={disabled}
                 onPress={() => {
                   Keyboard.dismiss();
@@ -81,14 +83,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
     marginBottom: 10,
-  },
-  iconContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    // paddingHorizontal: 10,
-  },
-  icon: {
-    fontSize: 16,
-    color: "#007BFF",
   },
 });

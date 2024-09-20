@@ -20,14 +20,13 @@ export const Button = ({
 }: MyButtonProps) => {
   return (
     <PaperButton
+      testID="button"
       contentStyle={[contentStyle, { padding: 5 }]}
       onPress={onPress}
-      style={
-        disabled ? buttonModeStyleDisabled[mode] : buttonModeStyle[mode] || {}
-      }
+      style={disabled ? buttonModeStyleDisabled[mode] : buttonModeStyle[mode]}
       disabled={disabled}
     >
-      <Text style={disabled ? textColorDisabled : textColorMode[mode] || {}}>
+      <Text style={disabled ? textColorDisabled : textColorMode[mode]}>
         {text}
       </Text>
     </PaperButton>

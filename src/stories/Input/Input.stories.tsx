@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { StyleSheet, View } from "react-native";
 
-import React from "react";
+import React, { FC } from "react";
 import { Input } from "../../components/Input";
 
 const meta = {
   title: "Components/Input",
   component: Input,
   decorators: [
-    (Story) => (
+    (Story: FC) => (
       <View style={styles.centered}>
         <Story />
       </View>

@@ -11,7 +11,6 @@ export interface CheckboxProps {
   onPress: () => void;
   checkColor: string;
   borderColor?: string;
-
   isDisabled?: boolean;
 }
 
@@ -20,31 +19,31 @@ export const Checkbox = ({
   onPress,
   checkColor,
   borderColor = "black",
-
   isDisabled,
 }: CheckboxProps) => {
   return (
-    <>
-      <TouchableOpacity
-        onPress={onPress}
-        style={[
-          styles.checkboxBase,
-          checked && styles.checkboxChecked,
-          {
-            borderColor: isDisabled ? backgroundColorDisabled : borderColor,
-          },
-        ]}
-        disabled={isDisabled}
-      >
-        {checked && (
-          <MaterialIcons
-            name="check"
-            size={18}
-            color={isDisabled ? textColorDisabled : checkColor}
-          />
-        )}
-      </TouchableOpacity>
-    </>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[
+        styles.checkboxBase,
+        {
+          borderColor: isDisabled ? backgroundColorDisabled : borderColor,
+        },
+      ]}
+      disabled={isDisabled}
+      testID="checkbox"
+      accessibilityRole="button"
+      accessibilityState={{ disabled: isDisabled }}
+    >
+      {checked && (
+        <MaterialIcons
+          name="check"
+          size={18}
+          color={isDisabled ? textColorDisabled : checkColor}
+          testID="check-icon"
+        />
+      )}
+    </TouchableOpacity>
   );
 };
 
@@ -54,11 +53,7 @@ const styles = StyleSheet.create({
     height: 24,
     borderRadius: 12,
     borderWidth: 2,
-
     justifyContent: "center",
     alignItems: "center",
-  },
-  checkboxChecked: {
-    backgroundColor: "transparent",
   },
 });

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { StyleSheet, View } from "react-native";
 
-import React from "react";
+import React, { FC } from "react";
 import { Button } from "../../components/Button";
 import { Text } from "react-native-paper";
 
@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Button",
   component: Button,
   decorators: [
-    (Story) => (
+    (Story: FC) => (
       <View style={styles.centered}>
         <Story />
       </View>

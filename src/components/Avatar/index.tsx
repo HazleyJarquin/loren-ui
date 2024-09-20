@@ -5,7 +5,7 @@ import { Avatar as PaperAvatar } from "react-native-paper";
 export type AvatarProps = {
   variant: "avatarImage" | "avatarIcon" | "avatarText";
   size: number;
-  source: { uri: string };
+  source?: { uri: string };
   isBorder?: boolean;
   borderContainerStyle?: StyleProp<ViewStyle>;
   icon?: string;
@@ -36,13 +36,24 @@ export const Avatar = ({
   ];
 
   return (
-    <View style={isBorder ? combinedBorderStyle : {}}>
+    <View testID="avatar-container" style={isBorder ? combinedBorderStyle : {}}>
       {variant === "avatarImage" ? (
-        <PaperAvatar.Image size={size} style={avatarStyle} source={source} />
+        <PaperAvatar.Image
+          testID="avatar-image"
+          size={size}
+          style={avatarStyle}
+          source={source ?? { uri: "" }}
+        />
       ) : variant === "avatarIcon" ? (
-        <PaperAvatar.Icon size={size} style={avatarStyle} icon={icon ?? ""} />
+        <PaperAvatar.Icon
+          testID="avatar-icon"
+          size={size}
+          style={avatarStyle}
+          icon={icon ?? ""}
+        />
       ) : (
         <PaperAvatar.Text
+          testID="avatar-text"
           size={size}
           label={avatarText ?? ""}
           color={textColor}
